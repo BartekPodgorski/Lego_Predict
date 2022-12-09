@@ -3,6 +3,7 @@ import pandas as pd
 
 
 req = Request(
+    #url='https://www.lego.com/pl-pl/product/grand-piano-21323',
     url='https://www.lego.com/pl-pl/product/grand-piano-21323',
     headers={'User-Agent': 'Mozilla/5.0'}
 )
@@ -26,15 +27,16 @@ print(ncomments)
 
 
 a='teraz'
-b='niedostepne'
+b='niedostępne'
+c='Wyprzedano'
 
 status =''
 for i in ncomments:
-    if i.endswith(a or b):
+    if i.endswith(a) or i.endswith(b) or i.endswith(c):
        status = str(i)
 
 print(status)
 
-#info_status = status.split('>')[1]
+info_status = status.split('>')[1]
 
-#print(info_status)
+print(info_status)
