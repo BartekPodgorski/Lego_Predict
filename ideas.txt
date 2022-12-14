@@ -1,0 +1,21 @@
+1. Cena z polski katalogowa ze strony klocki DONE by WIKI
+2. Jak wziac liste wsystkich zestawow DONE
+2.1 Mozna wziac z api theme i poleceic po wsystkich np. DONE
+2.2 Poszukac na stronie lego oficial DONE
+3. Dalsze pole rozwoju branie danych z instrukcji
+4. zrobienie automatyzacji na hasha DONE
+5. Status z lego store  DONE by WIKI
+6. Oprzec sie na danych z ponizszych zapytan ASK
+
+querystring = {'apiKey': apiKey, 'setID': 26725}
+url2 = 'https://brickset.com/api/v3.asmx/getInstructions'
+instructions = requests.request("GET", url2, params=querystring).json()
+print(json.dumps(instructions, indent=4))
+
+querystring = {'apiKey': apiKey, 'setID': 26725}
+url2 = 'https://brickset.com/api/v3.asmx/getReviews'
+review = requests.request("GET", url2, params=querystring).json()
+print(json.dumps(review, indent=4))
+
+Documentation:
+https://brickset.com/article/52664/api-version-3-documentation
