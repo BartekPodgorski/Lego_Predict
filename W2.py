@@ -4,7 +4,7 @@ from datetime import datetime
 #<script type="text/javascript">google.charts.load( wazna linia w chuj wykres z google na date mamy czas a na float mamy cene minimalna na niej mozna sie dobrze oprzec
 req = Request(
     url='https://promoklocki.pl/lego-friends-41709-wakacyjny-domek-na-plazy-h21745',
-    headers={'User-Agent': 'Mozilla/5.0'}
+    headers={'User-Agent': 'Mozilla/5.0'} #haslo, login
 )
 webpage = urlopen(req).read().decode("utf-8")
 #print(type(webpage))
@@ -16,7 +16,7 @@ from bs4 import BeautifulSoup
 soup = BeautifulSoup(webpage, 'html.parser')
 print(soup.prettify())
 print("##################")
-comments = soup.findAll('script')
+comments = soup.findAll('script') #znacznik
 print(len(comments))
 
 
