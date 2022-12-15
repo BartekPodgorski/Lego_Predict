@@ -44,7 +44,7 @@ for i in tmp_list:
         df_dictionary = pd.DataFrame([tmp_dict])
         df = pd.concat([df, df_dictionary], ignore_index=True)
 
-print(df.tail())
+df.to_excel('C:/Users/user/Desktop/example_dates.xlsx', index=False)
 """
 zestaw
 1 stycznia 200 # minimalna cena danego dnia 
