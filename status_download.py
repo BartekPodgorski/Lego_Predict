@@ -4,11 +4,14 @@ from urllib.error import HTTPError
 from bs4 import BeautifulSoup
 import requests
 
+# variables
+year = 2014
+
 df_brick_set = pd.read_excel('lego_brickset.xlsx')
 df = df_brick_set.sort_values('year', ascending=False)
 list_of_sets_all = df['number'].values.tolist()
-df_after_2014 = df[df['year'] > 2014]
-list_of_sets = df_after_2014['number'].values.tolist()
+df_after_year = df[df['year'] > year]
+list_of_sets = df_after_year['number'].values.tolist()
 status_all = []
 error_list = []
 
@@ -25,7 +28,6 @@ for x, number in enumerate(list_of_sets):
         status = div_one.find("span", {"class": "Markup__StyledMarkup-nc8x20-0 epIXnJ"}).text
         status_all.append(status)
     except (HTTPError, requests.exceptions.TooManyRedirects, AttributeError) as e:
-        # print(f'{e}: {number}')
         status_all.append('Lack of data')
         error_list.append(number)
         continue

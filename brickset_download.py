@@ -9,11 +9,11 @@ import json
 import pandas as pd
 import numpy as np
 
-
 # variables
 apiKey = ''
 username = ''
 password = ''
+page_size = 1000
 
 url_for_hash = 'https://brickset.com/api/v3.asmx/login'
 query_string = {'apiKey': apiKey, 'username': username, 'password': password}
@@ -41,10 +41,9 @@ url_for_sets = 'https://brickset.com/api/v3.asmx/getSets'
 
 print('Loading data from Brickset.com')
 for x, year in enumerate(years_list):
-    # print(f'{x}/{len(years_counts)}')
     value = x / len(years_counts)
     print(f'{round(value * 100, 3)} %')
-    setYear = {'extendedData': 1, 'year': year, 'pageSize':1000}
+    setYear = {'extendedData': 1, 'year': year, 'pageSize':page_size}
     setYear = json.dumps(setYear)
     query_string = {'apiKey': apiKey, 'userHash': userHash, 'params': setYear}
     set_series = requests.request("GET", url_for_sets, params=query_string).json()

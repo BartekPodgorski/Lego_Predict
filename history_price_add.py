@@ -70,7 +70,7 @@ for x, url in enumerate(list_url_final):
         except IndexError:
             print(url)
             continue
-
     except ValueError:
         continue
+
 final_df.to_excel('lego_data_price_history.xlsx', index=False) # to merge on url
